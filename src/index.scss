@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+body {
+	margin: 0 auto;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: #E7F6FF;
+	font-family: 'Inter', sans-serif;
+
+
+
+}
+
+.container {
+	max-width: 980px;
+	margin: 0 auto;
+}
+
+.App {
+	margin: 50px auto 0;
+	max-width: 1080px;
+
+	background: #FFFFFF;
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+	border-radius: 20px;
+
+}
+
+.headerLeft {
+	display: flex;
+	align-items: center;
+
+	img {
+		margin-right: 15px;
+	}
+}
+
+header {
+	padding-top: 45px;
+	padding-bottom: 45px;
+	border-bottom: 1px solid #EAEAEA;
+}
+
+.header-inner {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.headerInfo {
+
+	h3 {
+		margin: 0;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		line-height: 24px;
+		text-transform: uppercase
+	}
+}
+
+.sub-title {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 17px;
+	color: #9D9D9D;
+}
+
+.headerRight {
+	text-decoration: none;
+	list-style: none;
+	display: flex;
+
+	li {
+		margin-left: 30px;
+		display: flex;
+		align-items: center;
+
+		span {
+			margin-left: 8px;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 14px;
+			line-height: 17px;
+			color: #5C5C5C;
+		}
+	}
+
+}
+
+.card {
+	width: 210px;
+	height: 260px;
+
+	background: #FFFFFF;
+	border: 1px solid #F3F3F3;
+	box-sizing: border-box;
+	border-radius: 40px;
+	display: flex;
+	flex-direction: column;
+
+
+	&-inner {
+		margin: 10px 30px 30px;
+
+		p {
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 17px;
+			margin: 14px 0;
+			color: #000000;
+			width: 150px
+		}
+
+	}
+}
+
+.price {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 10px;
+
+	&-inner {
+		width: 80px;
+
+		p {
+			margin: 0;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 11px;
+			line-height: 13px;
+			text-transform: uppercase;
+			color: #BDBDBD;
+		}
+
+		b {
+			font-style: normal;
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 17px;
+			color: #000000;
+		}
+	}
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
