@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import styles from './Card.module.scss'
 
-const Card = (props) => {
-	const [isAdded, setIsAdded] = useState(true)
+const Card = ({ title, price, img, addToCart }) => {
+	const [isAdded, setIsAdded] = useState(false)
+
+
+
+	const handleClickAdd = () => {
+		addToCart()
+		setIsAdded(!isAdded)
+	}
 
 
 
@@ -10,15 +17,15 @@ const Card = (props) => {
 		<div className={styles.card}>
 			<img className={styles.favoriteIcon} src="/img/heart.svg" alt="addtofavorite" />
 			<div className={styles.cardInner}>
-				<img width={133} height={112} src={props.img} alt="yeezy-item" />
-				<p>{props.title}</p>
+				<img width={133} height={112} src={img} alt="yeezy-item" />
+				<p>{title}</p>
 				<div className={styles.price}>
 					<div className={styles.priceInner}>
 						<p>ЦЕНА:</p>
-						<b>{props.price} руб.</b>
+						<b>{price} руб.</b>
 					</div>
-					<img onClick={() => setIsAdded(!isAdded)}
-						src={isAdded ? '/img/add.svg' : '/img/added.svg'} alt="add to cart" />
+					<img onClick={handleClickAdd}
+						src={isAdded ? '/img/added.svg' : '/img/add.svg'} alt="add to cart" />
 
 				</div>
 			</div>

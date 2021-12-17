@@ -85,10 +85,12 @@ header {
 	list-style: none;
 	display: flex;
 
+
 	li {
 		margin-left: 30px;
 		display: flex;
 		align-items: center;
+		cursor: pointer;
 
 		span {
 			width: 40px;
@@ -162,11 +164,7 @@ h1 {
 }
 
 .sidebar-wrapper {
-
-
 	display: none;
-
-
 	background-color: rgba(0, 0, 0, 0.5);
 	height: 100%;
 	width: 100%;
@@ -176,7 +174,6 @@ h1 {
 }
 
 .sidebar {
-
 	position: absolute;
 	display: flex;
 	flex-direction: column;
@@ -189,6 +186,10 @@ h1 {
 	background: #FFFFFF;
 	box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
 
+	svg {
+		cursor: pointer;
+	}
+
 	h2 {
 		font-family: Inter;
 		font-style: normal;
@@ -200,11 +201,19 @@ h1 {
 	}
 }
 
+.sidebar-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 45px;
+}
+
 .card-side-items {
 	margin: 0 30px;
 }
 
 .sidebar-top {
+	flex: 1;
 	margin-bottom: 20px;
 	overflow: auto;
 }

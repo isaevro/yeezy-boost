@@ -1,45 +1,36 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Card from "./components/Card";
 import Cart from "./components/Cart";
 import Header from "./components/Header";
 
-const items = [
-	{
-		title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-		price: '12 999',
-		imgURL: '/img/sneakers/image 5-1.jpg'
-	},
-	{
-		title: 'Мужские Кроссовки Nike Air Max 270',
-		price: '9 999',
-		imgURL: '/img/sneakers/image 5-2.jpg'
-	},
-	{
-		title: 'Мужские Кроссовки Nike Blazer Top Suede',
-		price: '11 999',
-		imgURL: '/img/sneakers/image 5-3.jpg'
-	},
-	{
-		title: 'Кроссовки Puma X Aka Boku Future Rider',
-		price: '10 999',
-		imgURL: "/img/sneakers/image 5.jpg"
-	},
-	{
-		title: 'Кроссовки Puma X Aka Boku Future Rider',
-		price: '10 999',
-		imgURL: "/img/sneakers/image 5.jpg"
-	},
-	{
-		title: 'Кроссовки Puma X Aka Boku Future Rider',
-		price: '10 999',
-		imgURL: "/img/sneakers/image 5.jpg"
-	},
-]
-
+const localCart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function App() {
+
+	const [cartOpen, setCartOpen] = useState(false)
+	const [items, setItems] = useState([])
+	const [cartItems, setCartItems] = useState(localCart)
+
+
+	const addToCart = (obj) => {
+		setCartItems(prev => ([...prev, obj]))
+
+	}
+	useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cartItems))
+		console.log(localStorage.getItem('cart'))
+	}, [cartItems])
+
+	useEffect(() => {
+		axios.get('https://61bb7bc9e943920017784ee6.mockapi.io/yeezy')
+			.then(res => setItems(res.data))
+	}, [])
+
 	return (
 		<div className="App">
-			<Header />
+
+			<Header close={() => setCartOpen(true)} />
 			<div className="content">
 				<div className="container">
 					<div className="title">
@@ -52,16 +43,20 @@ function App() {
 					<div className="cards">
 						{items.map(item => (
 							<Card
+								key={item.id}
 								title={item.title}
 								price={item.price}
 								img={item.imgURL}
+								addToCart={() => addToCart(item)}
 							/>
 						))}
 					</div>
 				</div>
-
+				{cartOpen ?
+					<Cart cartItems={cartItems} close={() => setCartOpen(false)}
+					/>
+					: null}
 			</div>
-			<Cart />
 		</div>
 	);
 }
