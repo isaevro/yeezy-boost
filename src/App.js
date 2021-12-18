@@ -11,21 +11,34 @@ function App() {
 	const [cartOpen, setCartOpen] = useState(false)
 	const [items, setItems] = useState([])
 	const [cartItems, setCartItems] = useState(localCart)
+	const [searchValue, setSearchValue] = useState('')
 
 
 	const addToCart = (obj) => {
-		setCartItems(prev => ([...prev, obj]))
+		if (cartItems.filter(e => e.id !== obj.id).length === cartItems.length) {
+			setCartItems(prev => ([...prev, obj]))
+		}
+		else {
+			setCartItems(cartItems.filter(e => e.id !== obj.id))
+		}
 
 	}
 	useEffect(() => {
 		localStorage.setItem('cart', JSON.stringify(cartItems))
-		console.log(localStorage.getItem('cart'))
 	}, [cartItems])
 
 	useEffect(() => {
 		axios.get('https://61bb7bc9e943920017784ee6.mockapi.io/yeezy')
 			.then(res => setItems(res.data))
 	}, [])
+
+	const handleInput = (e) => {
+		setSearchValue(e.target.value)
+	}
+
+	const handleRemoveCartItem = (id) => {
+		setCartItems(prev => (prev.filter(item => item.id !== id)))
+	}
 
 	return (
 		<div className="App">
@@ -34,26 +47,29 @@ function App() {
 			<div className="content">
 				<div className="container">
 					<div className="title">
-						<h1>Все кроссовки</h1>
+						<h1>{searchValue ? `поиск по ${searchValue}` : 'все кроссовки'}</h1>
 						<div className="search">
 							<img src="/img/search.svg" alt="search" />
-							<input type="text" placeholder="Поиск..." />
+							<input type="text" onChange={handleInput} value={searchValue} placeholder="Поиск..." />
 						</div>
 					</div>
 					<div className="cards">
-						{items.map(item => (
-							<Card
-								key={item.id}
-								title={item.title}
-								price={item.price}
-								img={item.imgURL}
-								addToCart={() => addToCart(item)}
-							/>
-						))}
+						{items
+							.filter(e => e.title.toLowerCase().includes(searchValue.toLowerCase()))
+							.map(item => (
+								<Card
+									key={item.id}
+									title={item.title}
+									price={item.price}
+									img={item.imgURL}
+									isKek={item.id === 9}
+									addToCart={() => addToCart(item)}
+								/>
+							))}
 					</div>
 				</div>
 				{cartOpen ?
-					<Cart cartItems={cartItems} close={() => setCartOpen(false)}
+					<Cart cartItems={cartItems} handleRemoveCartItem={handleRemoveCartItem} close={() => setCartOpen(false)}
 					/>
 					: null}
 			</div>

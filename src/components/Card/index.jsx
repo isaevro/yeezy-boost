@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styles from './Card.module.scss'
 
-const Card = ({ title, price, img, addToCart }) => {
+const Card = ({ title, price, img, addToCart, isKek }) => {
 	const [isAdded, setIsAdded] = useState(false)
-
 
 
 	const handleClickAdd = () => {
@@ -25,7 +24,7 @@ const Card = ({ title, price, img, addToCart }) => {
 						<b>{price} руб.</b>
 					</div>
 					<img onClick={handleClickAdd}
-						src={isAdded ? '/img/added.svg' : '/img/add.svg'} alt="add to cart" />
+						src={(isKek || isAdded) ? '/img/added.svg' : '/img/add.svg'} alt="add to cart" />
 
 				</div>
 			</div>
