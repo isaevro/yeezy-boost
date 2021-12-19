@@ -108,6 +108,20 @@ header {
   min-height: 290px;
   width: 100%;
 }
+.card {
+  margin-right: 35px;
+  margin-bottom: 30px;
+  width: 210px;
+  height: 260px;
+  position: relative;
+
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  box-sizing: border-box;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+}
 
 .title {
   display: flex;

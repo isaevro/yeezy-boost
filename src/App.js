@@ -42,7 +42,6 @@ function App() {
       .get('https://61bb7bc9e943920017784ee6.mockapi.io/yeezy')
       .then((res) => setItems(res.data));
   }, []);
-
   const handleInput = (e) => {
     setSearchValue(e.target.value);
   };
@@ -58,7 +57,6 @@ function App() {
     let res = cartItems.map((e) => e.price.split(' ').join('')).reduce((sum, cur) => sum + +cur, 0);
     return res;
   };
-  console.log('render');
   return (
     <div className="App">
       <Header open={handleCartClose} price={price()} />

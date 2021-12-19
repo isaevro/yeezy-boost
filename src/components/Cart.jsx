@@ -11,7 +11,7 @@ const Cart = ({ close, cartItems, handleRemoveCartItem, price }) => {
         <div className="sidebar-top">
           <div className="card-side-items">
             {cartItems.map((item) => (
-              <div className="card-side-item">
+              <div className="card-side-item" key={item.id}>
                 <div className="card-side-item-inner">
                   <img
                     width={70}
