@@ -340,3 +340,14 @@ h1 {
     margin-left: 50px;
   }
 }
+.no-items {
+  text-align: center;
+  height: 0;
+}
+.favcount {
+  position: absolute;
+  top: -7px;
+  right: -11px;
+  font-size: 16px;
+  color: #ffa3a3;
+}

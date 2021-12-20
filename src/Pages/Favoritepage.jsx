@@ -8,6 +8,14 @@ const Favoritepage = ({ cartItems, addToCart, addToFavorite, favoriteItems }) =>
         <div className="title">
           <h1>избранное</h1>
         </div>
+        {favoriteItems.length === 0 && (
+          <div className="no-items">
+            <img width={70} height={70} src="/img/smilesad.png" alt="" />{' '}
+            <h2>Здесь пока ничего нет :(</h2>
+            <p>вы ничего не добавили в избранное</p>
+          </div>
+        )}
+
         <div className="cards">
           {favoriteItems.map((item) => (
             <Card

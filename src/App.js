@@ -15,7 +15,17 @@ function App() {
   const [cartItems, setCartItems] = useState(localCart);
   const [favoriteItems, setFavoriteItems] = useState(localFavorite);
   const [searchValue, setSearchValue] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
+  //Загрузка items и отключение isLoading
+  useEffect(() => {
+    axios.get('https://61bb7bc9e943920017784ee6.mockapi.io/yeezy').then((res) => {
+      setIsLoading(false);
+      return setItems(res.data);
+    });
+  }, []);
+
+  // Добавления в избранное и корзину
   const addToCart = (obj) => {
     if (cartItems.filter((e) => e.id !== obj.id).length === cartItems.length) {
       setCartItems((prev) => [...prev, obj]);
@@ -30,6 +40,7 @@ function App() {
       setFavoriteItems(favoriteItems.filter((e) => e.id !== obj.id));
     }
   };
+  // Сохранение в localstorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
   }, [cartItems]);
@@ -37,11 +48,7 @@ function App() {
     localStorage.setItem('favorites', JSON.stringify(favoriteItems));
   }, [favoriteItems]);
 
-  useEffect(() => {
-    axios
-      .get('https://61bb7bc9e943920017784ee6.mockapi.io/yeezy')
-      .then((res) => setItems(res.data));
-  }, []);
+  // Клики и инпуты
   const handleInput = (e) => {
     setSearchValue(e.target.value);
   };
@@ -53,13 +60,15 @@ function App() {
   const handleCartClose = () => {
     setCartOpen(!cartOpen);
   };
+
+  //вычисление цены
   const price = () => {
     let res = cartItems.map((e) => e.price.split(' ').join('')).reduce((sum, cur) => sum + +cur, 0);
     return res;
   };
   return (
     <div className="App">
-      <Header open={handleCartClose} price={price()} />
+      <Header open={handleCartClose} price={price()} favoriteItems={favoriteItems} />
       <Routes>
         <Route
           path="/"
@@ -72,6 +81,7 @@ function App() {
               addToCart={addToCart}
               favoriteItems={favoriteItems}
               addToFavorite={addToFavorite}
+              isLoading={isLoading}
             />
           }
         />

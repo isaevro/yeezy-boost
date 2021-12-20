@@ -9,6 +9,7 @@ const Homepage = ({
   addToCart,
   addToFavorite,
   favoriteItems,
+  isLoading,
 }) => {
   return (
     <>
@@ -28,7 +29,7 @@ const Homepage = ({
             </div>
           </div>
           <div className="cards">
-            {items.length === 0 &&
+            {isLoading &&
               [...Array(10)].map((e, i) => (
                 <div className="card" key={i}>
                   <ContentLoader
