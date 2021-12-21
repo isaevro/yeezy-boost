@@ -17,7 +17,7 @@ const Card = ({ title, price, img, addToCart, isCartAdded, addToFavorite, isFavo
         alt="addtofavorite"
       />
       <div className={styles.cardInner}>
-        <img width={133} height={112} src={img} alt="yeezy-item" />
+        <img width={133} height={112} src={img} alt="yeezy-item" className="yeezy-card-img" />
         <p>{title}</p>
         <div className={styles.price}>
           <div className={styles.priceInner}>

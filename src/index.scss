@@ -323,6 +323,12 @@ h1 {
   text-align: center;
   color: #ffffff;
   cursor: pointer;
+  &:disabled {
+    background: #454e3d;
+    &:hover {
+      background-color: #454e3d;
+    }
+  }
 
   &:hover {
     transition: 0.2s ease;
@@ -350,4 +356,12 @@ h1 {
   right: -11px;
   font-size: 16px;
   color: #ffa3a3;
+}
+#personal-card {
+  img {
+    display: none;
+  }
+  .yeezy-card-img {
+    display: block;
+  }
 }

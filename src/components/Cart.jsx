@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ close, cartItems, handleRemoveCartItem, price }) => {
+const Cart = ({ close, cartItems, handleRemoveCartItem, price, handleBuy, isOrdered }) => {
   return (
     <div className="sidebar-wrapper" onClick={(e) => e.currentTarget === e.target && close()}>
       <div className="sidebar">
@@ -33,6 +33,32 @@ const Cart = ({ close, cartItems, handleRemoveCartItem, price }) => {
                 </div>
               </div>
             ))}
+            {cartItems.length === 0 && !isOrdered && (
+              <div style={{ paddingTop: '80px' }} className="no-items">
+                <img
+                  style={{ cursor: 'default' }}
+                  width={70}
+                  height={70}
+                  src="/img/empty-cart.png"
+                  alt=""
+                />
+                <h2>Здесь пока ничего нет :(</h2>
+                <p>добавьте товар в корзину</p>
+              </div>
+            )}
+            {cartItems.length === 0 && isOrdered && (
+              <div style={{ paddingTop: '80px' }} className="no-items">
+                <img
+                  style={{ cursor: 'default' }}
+                  width={67}
+                  height={97}
+                  src="/img/complete.jpg"
+                  alt="complete"
+                />
+                <h2 style={{ color: '#9dd558' }}>Спасибо за покупку! :)</h2>
+                <p>Ваш заказ оформлен.</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="sidebar-bottom">
@@ -51,7 +77,10 @@ const Cart = ({ close, cartItems, handleRemoveCartItem, price }) => {
             <div></div>
             <b>{price - (Math.round(price * 0.2) * 100) / 100} руб.</b>
           </div>
-          <button className="sidebar-submit">
+          <button
+            className="sidebar-submit"
+            disabled={cartItems.length === 0 ? true : false}
+            onClick={() => handleBuy()}>
             Оформить заказ
             <svg
               width="16"
