@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 
-const Personal = ({ myPurchases }) => {
+const Personal = ({ myPurchases, handleClearPurchases }) => {
   const fullSum = () => {
     let res = myPurchases
       .map((e) => e.price.split(' ').join(''))
@@ -13,9 +13,19 @@ const Personal = ({ myPurchases }) => {
       <div className="container">
         <div className="title">
           <h1>мои покупки</h1>
+          <div className="clearpur">
+            очистить историю
+            <img
+              onClick={() => handleClearPurchases()}
+              className="close-cart"
+              src="/img/close.svg"
+              alt="close"
+            />
+          </div>
         </div>
         <div style={{ marginBottom: '50px' }}>
-          сумма всех ваших покупок без учета скидок: <b>{fullSum()}</b> руб.
+          Количество совершенных покупок: <b>{myPurchases.length}</b>, на сумму <b>{fullSum()}</b>{' '}
+          руб.
         </div>
         {myPurchases.length === 0 && (
           <div className="no-items">

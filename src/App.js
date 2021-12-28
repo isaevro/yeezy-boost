@@ -74,6 +74,10 @@ function App() {
     setCartItems([]);
     setIsOrdered(true);
   };
+  const handleClearPurchases = () => {
+    localStorage.removeItem('purchases');
+    setMyPurchases([]);
+  };
 
   //вычисление цены
   const price = () => {
@@ -82,7 +86,12 @@ function App() {
   };
   return (
     <div className="App">
-      <Header open={handleCartClose} price={price()} favoriteItems={favoriteItems} />
+      <Header
+        myPurchases={myPurchases}
+        open={handleCartClose}
+        price={price()}
+        favoriteItems={favoriteItems}
+      />
       <Routes>
         <Route
           path="/"
@@ -115,12 +124,7 @@ function App() {
         <Route
           path="/personal"
           element={
-            <Personal
-              myPurchases={myPurchases}
-              addToCart={addToCart}
-              favoriteItems={favoriteItems}
-              addToFavorite={addToFavorite}
-            />
+            <Personal handleClearPurchases={handleClearPurchases} myPurchases={myPurchases} />
           }
         />
       </Routes>
