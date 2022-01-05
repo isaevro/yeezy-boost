@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/yeezy-boost/static/css/main.9cfc2e76.chunk.css",
+    "main.js": "/yeezy-boost/static/js/main.7fec74f2.chunk.js",
+    "main.js.map": "/yeezy-boost/static/js/main.7fec74f2.chunk.js.map",
+    "runtime-main.js": "/yeezy-boost/static/js/runtime-main.9e1d3f84.js",
+    "runtime-main.js.map": "/yeezy-boost/static/js/runtime-main.9e1d3f84.js.map",
+    "static/js/2.b9d8db89.chunk.js": "/yeezy-boost/static/js/2.b9d8db89.chunk.js",
+    "static/js/2.b9d8db89.chunk.js.map": "/yeezy-boost/static/js/2.b9d8db89.chunk.js.map",
+    "index.html": "/yeezy-boost/index.html",
+    "static/css/main.9cfc2e76.chunk.css.map": "/yeezy-boost/static/css/main.9cfc2e76.chunk.css.map",
+    "static/js/2.b9d8db89.chunk.js.LICENSE.txt": "/yeezy-boost/static/js/2.b9d8db89.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9e1d3f84.js",
+    "static/js/2.b9d8db89.chunk.js",
+    "static/css/main.9cfc2e76.chunk.css",
+    "static/js/main.7fec74f2.chunk.js"
+  ]
+}
