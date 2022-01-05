@@ -1,97 +1,84 @@
 .card {
-	margin-right: 35px;
-	margin-bottom: 30px;
-	width: 210px;
-	height: 260px;
-	position: relative;
+  margin: 20px 15px;
+  width: 210px;
+  height: 260px;
+  position: relative;
 
-	background: #FFFFFF;
-	border: 1px solid #F3F3F3;
-	box-sizing: border-box;
-	border-radius: 40px;
-	display: flex;
-	flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #f3f3f3;
+  box-sizing: border-box;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
 
-	button {
-		border: none;
-		background: none;
-	}
+  button {
+    border: none;
+    background: none;
+  }
 
+  transition: transform 0.3s ease;
 
-
-
-	transition: transform 0.3s ease;
-
-	&:hover {
-		background: #FFFFFF;
-		border: 1px solid #F8F8F8;
-		box-sizing: border-box;
-		box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
-		border-radius: 40px;
-		transform: translateY(-5px)
-	}
-
-
-
-
+  &:hover {
+    background: #ffffff;
+    border: 1px solid #f8f8f8;
+    box-sizing: border-box;
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 40px;
+    transform: translateY(-5px);
+  }
 }
 
 .cardInner {
-	margin: 10px 30px 30px;
+  margin: 10px 30px 30px;
 
-	p {
-		font-style: normal;
-		font-weight: normal;
-		font-size: 14px;
-		line-height: 17px;
-		margin: 14px 0;
-		color: #000000;
-		width: 150px
-	}
-
-
+  p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 14px 0;
+    color: #000000;
+    width: 150px;
+  }
 }
 
 .favoriteIcon {
-	position: absolute;
-	top: 30px;
-	left: 30px;
-	cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  cursor: pointer;
 }
 
 .price {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
 
-	img {
-		cursor: pointer;
-
-	}
-
-
+  img {
+    cursor: pointer;
+  }
 }
 
 .priceInner {
-	flex: 1;
-	width: 80px;
+  flex: 1;
+  width: 80px;
 
-	p {
-		margin: 0;
-		font-style: normal;
-		font-weight: 500;
-		font-size: 11px;
-		line-height: 13px;
-		text-transform: uppercase;
-		color: #BDBDBD;
-	}
+  p {
+    margin: 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #bdbdbd;
+  }
 
-	b {
-		font-style: normal;
-		font-weight: bold;
-		font-size: 14px;
-		line-height: 17px;
-		color: #000000;
-	}
+  b {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  }
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = ({ open, price, favoriteItems, myPurchases }) => {
   return (
@@ -16,7 +16,7 @@ const Header = ({ open, price, favoriteItems, myPurchases }) => {
                 </div>
               </div>
             </Link>
-            <div>
+            <div className="headerRight-inner">
               <ul className="headerRight">
                 <li onClick={open}>
                   <img src="/img/cart.svg" alt="cart" />
@@ -28,7 +28,11 @@ const Header = ({ open, price, favoriteItems, myPurchases }) => {
                       width="20"
                       height="20"
                       style={{ display: 'block' }}
-                      src={favoriteItems.length === 0 ? '/img/hearthead.svg' : '/img/heartadd.svg'}
+                      src={
+                        favoriteItems.length === 0
+                          ? '/img/hearthead.svg'
+                          : '/img/heartadd.svg'
+                      }
                       alt="favorite"
                     />
                     {favoriteItems.length !== 0 && (
@@ -52,7 +56,9 @@ const Header = ({ open, price, favoriteItems, myPurchases }) => {
                         fill={myPurchases.length !== 0 ? '#343941' : '#9B9B9B'}
                       />
                     </svg>
-                    {myPurchases.length !== 0 && <div className="purcount">new</div>}
+                    {myPurchases.length !== 0 && (
+                      <div className="purcount">new</div>
+                    )}
                   </Link>
                 </li>
               </ul>
@@ -61,7 +67,7 @@ const Header = ({ open, price, favoriteItems, myPurchases }) => {
         </div>
       </header>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
